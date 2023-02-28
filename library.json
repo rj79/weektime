@@ -1,0 +1,23 @@
+{
+    "name": "weektime",
+    "version": "0.1-dev",
+    "description": "Library for working with week-based time definitions. Weekday, hour, minute, second, millisecond.",
+    "keywords": "time, weekday",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/rj79/weekday.git"
+    },
+    "authors": [
+        {
+            "name": "Robert Johansson",
+            "email": "robertrockar@live.com",
+            "url": "",
+            "maintainer": true
+        }
+    ],
+    "license": "MIT",
+    "homepage": "",
+    "dependencies": {},
+    "frameworks": "Arduino",
+    "platforms": "*"
+}
