@@ -1,6 +1,16 @@
 #include "Weektime.h"
 
+#ifndef min
+#define min(x, y) x < y ? x : y
+#endif
+
+#ifndef max
+#define max(x, y) x > y ? x : y
+#endif
+
 const char* _weekdays[] = {"Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"};
+
+uint8_t FirstWeekday = MONDAY;
 
 Weektime::Weektime(int32_t weekday, int32_t hour, int32_t minute, int32_t second, int32_t milli):
     Weekday(weekday),
@@ -9,13 +19,13 @@ Weektime::Weektime(int32_t weekday, int32_t hour, int32_t minute, int32_t second
     Second(second),
     Milli(milli)
 {
-    // Empty
+    set(Weekday, Hour, Minute, Second, Milli);
 }
 
 Weektime::Weektime(const Weektime& other)
 {
     Weekday = other.Weekday;
-    Hour = other.Weekday;
+    Hour = other.Hour;
     Minute = other.Minute;
     Second = other.Second;
     Milli = other.Milli;
@@ -24,10 +34,10 @@ Weektime::Weektime(const Weektime& other)
 void Weektime::set(int32_t weekday, int32_t hour, int32_t minute, int32_t second, int32_t milli)
 {
     Weekday = weekday % 7;
-    Hour = max(0, min((int)hour, 23));
-    Minute = max(0, min((int)minute, 59));
-    Second = max(0, min((int)second, 59));
-    Milli = max(0, min((int)second, 999));
+    Hour = hour % 24;
+    Minute = minute % 60;
+    Second = second % 60;
+    Milli = milli % 1000;
 }
 
 Weektime Weektime::start_of_day() const {
@@ -176,6 +186,7 @@ int32_t Weektime::to_millis() const
 String Weektime::to_string() const
 {
     char s[64];
-    snprintf(s, sizeof(s), "%s %02i:%02i:%02i.%03i", _weekdays[Weekday], Hour, Minute, Second, Milli);
+    uint8_t day = (Weekday + FirstWeekday) % 7;
+    snprintf(s, sizeof(s), "%s %02i:%02i:%02i.%03i", _weekdays[day], Hour, Minute, Second, Milli);
     return String(s);
 }

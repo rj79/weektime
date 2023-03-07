@@ -1,6 +1,6 @@
 {
     "name": "weektime",
-    "version": "0.1-dev",
+    "version": "0.2-dev",
     "description": "Library for working with week-based time definitions. Weekday, hour, minute, second, millisecond.",
     "keywords": "time, weekday",
     "repository": {
