@@ -1,5 +1,5 @@
-#ifndef TWEEKTIME_H
-#define TWEEKTIME_H
+#ifndef WEEKTIME_H
+#define WEEKTIME_H
 
 #include <Arduino.h>
 #include <stdint.h>
