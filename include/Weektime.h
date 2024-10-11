@@ -19,22 +19,22 @@ extern uint8_t FirstWeekday;
 class Weektime
 {
 private:
-    int32_t Weekday;
-    int32_t Hour;
-    int32_t Minute;
-    int32_t Second;
-    int32_t Milli;
+    int8_t Weekday;
+    int8_t Hour;
+    int8_t Minute;
+    int8_t Second;
+    int16_t Milli;
 
 public:
-    Weektime(int32_t weekday=0, int32_t hour=0, int32_t minute=0, int32_t second=0, int32_t milli=0);
+    Weektime(int8_t weekday=0, int8_t hour=0, int8_t minute=0, int8_t second=0, int16_t milli=0);
     Weektime(const Weektime& other);
-    void set(int32_t weekday=0, int32_t hour=0, int32_t miute=0, int32_t second=0, int32_t milli=0);
+    void set(int8_t weekday=0, int8_t hour=0, int8_t miute=0, int8_t second=0, int16_t milli=0);
     Weektime start_of_day() const;
-    int32_t weekday() const;
-    int32_t hour() const;
-    int32_t minute() const;
-    int32_t second() const;
-    int32_t milli() const;
+    int8_t weekday() const;
+    int8_t hour() const;
+    int8_t minute() const;
+    int8_t second() const;
+    int16_t milli() const;
     Weektime& operator=(const Weektime& other);
     Weektime operator+(const Weektime& other) const;
     Weektime operator-(const Weektime& other) const;

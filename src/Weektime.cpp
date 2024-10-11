@@ -12,7 +12,7 @@ const char* _weekdays[] = {"Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"};
 
 uint8_t FirstWeekday = MONDAY;
 
-Weektime::Weektime(int32_t weekday, int32_t hour, int32_t minute, int32_t second, int32_t milli):
+Weektime::Weektime(int8_t weekday, int8_t hour, int8_t minute, int8_t second, int16_t milli):
     Weekday(weekday),
     Hour(hour),
     Minute(minute),
@@ -31,7 +31,7 @@ Weektime::Weektime(const Weektime& other)
     Milli = other.Milli;
 }
 
-void Weektime::set(int32_t weekday, int32_t hour, int32_t minute, int32_t second, int32_t milli)
+void Weektime::set(int8_t weekday, int8_t hour, int8_t minute, int8_t second, int16_t milli)
 {
     Weekday = weekday % 7;
     Hour = hour % 24;
@@ -44,27 +44,27 @@ Weektime Weektime::start_of_day() const {
     return Weektime(Weekday);
 }
 
-int32_t Weektime::weekday() const
+int8_t Weektime::weekday() const
 {
     return Weekday;
 }
 
-int32_t Weektime::hour() const
+int8_t Weektime::hour() const
 {
     return Hour;
 }
 
-int32_t Weektime::minute() const
+int8_t Weektime::minute() const
 {
     return Minute;
 }
 
-int32_t Weektime::second() const
+int8_t Weektime::second() const
 {
     return Second;
 }
 
-int32_t Weektime::milli() const
+int16_t Weektime::milli() const
 {
     return Milli;
 }
